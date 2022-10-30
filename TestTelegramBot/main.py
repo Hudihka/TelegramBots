@@ -1,4 +1,5 @@
 import telebot
+import time
 
 bot = telebot.TeleBot('5626067599:AAG2Zs0SfUTcp9RONiI9cS4oj5tW1whQSQ4')
 
@@ -13,6 +14,7 @@ def start(message):
 
 @bot.message_handler(commands=['name'])
 def name(message):
+    # отправка имени юзера
     nameUser = message.from_user.username
     bot.send_message(message.chat.id, f'Привет @{nameUser}')
 
@@ -21,6 +23,31 @@ def name(message):
 def send_welcome(message):
     # reply_to ответить на сообщение
     bot.reply_to(message, "Howdy, how are you doing?")
+
+
+ignor = False
+
+
+@bot.message_handler(commands=['ale'])
+def ale(message):
+    mess_ale_first = 'АЛЕЕЕЕ БЛЯТЬ!!!'
+    mess_ale_second = '\nОТВЕТЬ БРАТЮНЕ'
+    count = 100
+
+    for i in range(count):
+        time.sleep(i)
+        bot.send_message(message.chat.id, f'<b>{mess_ale_first}</b>{mess_ale_second}', parse_mode='html')
+
+
+@bot.message_handler()
+def new_message(message):
+    mess_ale_first = 'АЛЕЕЕЕ БЛЯТЬ!!!'
+    mess_ale_second = '\nОТВЕТЬ БРАТЮНЕ'
+    count = 100
+
+    for i in range(count):
+        time.sleep(i)
+        bot.send_message(message.chat.id, f'<b>{mess_ale_first}</b>{mess_ale_second}', parse_mode='html')
 
 
 # бот работает без остановки

@@ -11,6 +11,12 @@ def start(message):
     bot.send_message(message.chat.id, '<b>Привет</b>', parse_mode='html')
 
 
+@bot.message_handler(commands=['name'])
+def name(message):
+    nameUser = message.from_user.username
+    bot.send_message(message.chat.id, f'Привет @{nameUser}')
+
+
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     # reply_to ответить на сообщение

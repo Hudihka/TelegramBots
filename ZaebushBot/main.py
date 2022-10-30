@@ -5,8 +5,8 @@ bot = telebot.TeleBot('5747667746:AAGM-pY5RnoZSO3rREJB-vW0mrvmntG__Es')
 
 
 ignor_value: bool = False
-COUNT = 5
-NAME_OWNER = 'hudihka00'
+COUNT = 10
+NAME_OWNER = 'hudihka'
 # COUNT = 70
 # NAME_OWNER = 'hudihka'
 
@@ -42,6 +42,7 @@ def activate_zaeb(message):
 @bot.message_handler()
 def messages_listen(message):
     nameUser = message.from_user.username
+    print("oooooooo")
     if nameUser != NAME_OWNER and ignor_value:
         ignor_value_ = False
         bot.reply_to(message, 'А сразу нельзя было?')

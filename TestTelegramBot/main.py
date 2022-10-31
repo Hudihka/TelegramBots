@@ -3,6 +3,26 @@ import time
 
 bot = telebot.TeleBot('5626067599:AAG2Zs0SfUTcp9RONiI9cS4oj5tW1whQSQ4')
 
+# MARK: - Кнопки
+# кнопка в сообщени
+
+
+@bot.message_handler(commands=['test'])
+def test(message):
+    murkup = types.InlineKeyboardMarkup()
+    murkup.add(types.InlineKeyboardButton("посетить сайт", url="https://google.com"))
+    bot.send_message(message.chat.id, "Перейти на сайт", reply_markup=murkup)
+
+# кнопки после ввода команды
+@bot.message_handler(commands=['test2'])
+def test2(message):
+    murkup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
+    website = types.KeyboardButton('web site')
+    start = types.KeyboardButton('start')
+
+    murkup.add(website, start)
+    bot.send_message(message.chat.id, "Перейти на сайт", reply_markup=murkup)
+
 
 @bot.message_handler(commands=['test'])
 def start(message):

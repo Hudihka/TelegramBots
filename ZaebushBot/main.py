@@ -28,6 +28,7 @@ def message_lol(message):
 
 
 def activate_zaeb(message):
+    global ignor_value
     ignor_value = True
     mess_ale_first = 'АЛЕЕЕЕEEE БЛЯТЬ!!!'
     mess_ale_second = '\nОТВЕТЬ БРАТЮНЕ'
@@ -42,9 +43,9 @@ def activate_zaeb(message):
 @bot.message_handler()
 def messages_listen(message):
     nameUser = message.from_user.username
-    print("oooooooo")
     if nameUser != NAME_OWNER and ignor_value:
-        ignor_value_ = False
+        global ignor_value
+        ignor_value = False
         bot.reply_to(message, 'А сразу нельзя было?')
         photo = open('IMG_0160.JPG', 'rb')
         bot.send_photo(message.chat.id, photo)

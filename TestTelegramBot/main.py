@@ -1,7 +1,10 @@
 import telebot
+import types from telebot
 import time
 
 bot = telebot.TeleBot('5626067599:AAG2Zs0SfUTcp9RONiI9cS4oj5tW1whQSQ4')
+
+addres = 'cd /Users/konstantinirosnikov/Library/Developer/Xcode/Archives/2022-11-01'
 
 # MARK: - Кнопки
 # кнопка в сообщени

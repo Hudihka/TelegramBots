@@ -6,10 +6,12 @@ bot = telebot.TeleBot('5747667746:AAGM-pY5RnoZSO3rREJB-vW0mrvmntG__Es')
 
 
 ignor_value: bool = False
-COUNT = 12
+COUNT = 100
 NAME_OWNER = 'hudihka'
-# COUNT = 70
-# NAME_OWNER = 'hudihka'
+
+bot.set_my_commands([
+    telebot.types.BotCommand("start", "включаем режим заебы")
+])
 
 
 @bot.message_handler(commands=['start'])
@@ -30,6 +32,8 @@ def message_lol(message):
 
 def activate_zaeb(message):
     global ignor_value
+    if ignor_value:
+        return
     ignor_value = True
     mess_ale_first = 'АЛЕЕЕЕEEE БЛЯТЬ!!!'
     mess_ale_second = '\nОТВЕТЬ БРАТЮНЕ'
